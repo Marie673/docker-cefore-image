@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN mkdir -p /cefore
@@ -28,10 +28,11 @@ RUN apt-get -y clean
 
 WORKDIR /cefore
 RUN git clone https://github.com/cefore/cefore.git
-RUN git clone https://github.com/cefore/cefpyco.git
+RUN git clone https://github.com/Marie673/cefpyco
 
 WORKDIR /cefore/cefore
 # RUN autoreconf -f -i
+RUN git checkout v0.9.0b
 RUN autoconf
 RUN automake
 RUN ./configure --enable-cache --enable-csmgr
