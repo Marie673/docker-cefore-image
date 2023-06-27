@@ -4,10 +4,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN mkdir -p /cefore
 WORKDIR /cefore
 RUN apt-get update
+RUN apt-get install -y python3.11
 RUN apt-get install -y git build-essential libssl-dev libtool
 RUN apt-get install -y emacs
 RUN apt-get install -y iputils-ping net-tools ifstat
-RUN apt-get install -y python3.11
 RUN apt-get install -y cmake python3-pip
 RUN pip3 install --upgrade pip
 RUN pip3 install setuptools click numpy
