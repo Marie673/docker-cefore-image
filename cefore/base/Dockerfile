@@ -27,12 +27,11 @@ RUN make install
 RUN apt-get -y clean
 
 WORKDIR /cefore
-RUN git clone https://github.com/cefore/cefore.git
+RUN git clone -b v0.9.0b https://github.com/cefore/cefore.git
 RUN git clone https://github.com/Marie673/cefpyco
 
 WORKDIR /cefore/cefore
 # RUN autoreconf -f -i
-RUN git checkout v0.9.0b
 RUN autoconf
 RUN automake
 RUN ./configure --enable-cache --enable-csmgr
